@@ -19,7 +19,7 @@ jobs:
         aws-region: ${{ secrets.AWS_REGION }}
     - name: Sync frontend to S3
       run: |
-        aws s3 sync . s3://${{ secrets.S3_BUCKET }} --delete --exclude ".git/*" --exclude ".github/*"
+        aws s3 sync ./frontend s3://${{ secrets.S3_BUCKET }} --delete --exclude ".git/*" --exclude ".github/*"
     - name: Invalidate CloudFront cache
       if: env.CLOUDFRONT_DIST_ID != ''
       env:
