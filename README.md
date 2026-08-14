@@ -1,7 +1,6 @@
 
 feetback submitted correctly!!!!1
-<img width="1833" height="603" alt="Screenshot 2026-08-14 at 02 38 12" src="https://github.com/user-attachments/assets/f7b72ecd-96e1-45f7-92d6-9b2155f9a02b" />
-
+<img width="1829" height="535" alt="Screenshot 2026-08-14 at 02 43 40" src="https://github.com/user-attachments/assets/cef2ac6a-4fdd-4041-901a-4a93123df070" />
 
 
 
