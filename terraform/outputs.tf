@@ -1,6 +1,10 @@
+# NOTE: cloudfront_domain_name and lambda_function_name are hardcoded
+# plain strings (not resource references) since CloudFront and Lambda
+# are manually managed on this account, not Terraform-tracked.
+
 output "cloudfront_domain_name" {
-  description = "Public URL for the deployed frontend"
-  value       = "https://${aws_cloudfront_distribution.frontend.domain_name}"
+  description = "Public URL for the deployed frontend (manually managed)"
+  value       = "https://dvudwljz7c6un.cloudfront.net"
 }
 
 output "api_invoke_url" {
@@ -26,5 +30,6 @@ output "dynamodb_table_name" {
 }
 
 output "lambda_function_name" {
-  value = aws_lambda_function.submit_feedback.function_name
+  description = "Manually managed — not tracked by Terraform"
+  value       = "SubmitFeetbackFunction"
 }

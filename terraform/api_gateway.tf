@@ -10,6 +10,8 @@ resource "aws_api_gateway_resource" "submit" {
 
 ########################################
 # POST /submit — Lambda proxy integration
+# NOTE: Lambda function is manually managed (not Terraform-tracked), so
+# the invoke ARN below is hardcoded rather than referencing a resource.
 ########################################
 
 resource "aws_api_gateway_method" "post_submit" {
@@ -25,7 +27,7 @@ resource "aws_api_gateway_integration" "post_submit" {
   http_method             = aws_api_gateway_method.post_submit.http_method
   integration_http_method = "POST"
   type                    = "AWS_PROXY"
-  uri                     = aws_lambda_function.submit_feedback.invoke_arn
+  uri                     = "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:602555456359:function:SubmitFeetbackFunction/invocations"
 }
 
 ########################################
@@ -47,7 +49,7 @@ resource "aws_api_gateway_integration" "options_submit" {
   http_method             = aws_api_gateway_method.options_submit.http_method
   integration_http_method = "POST"
   type                    = "AWS_PROXY"
-  uri                     = aws_lambda_function.submit_feedback.invoke_arn
+  uri                     = "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:602555456359:function:SubmitFeetbackFunction/invocations"
 }
 
 ########################################

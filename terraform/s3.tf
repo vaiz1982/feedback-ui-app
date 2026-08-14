@@ -15,8 +15,8 @@ resource "aws_s3_bucket_public_access_block" "frontend" {
 }
 
 # Bucket policy granting CloudFront (via OAC) read access — scoped to this
-# specific distribution only, matching the "Allow private S3 bucket access
-# to CloudFront" checkbox behavior from the console.
+# specific distribution only. Hardcoded since CloudFront isn't Terraform-
+# managed on this account (see cloudfront.tf note).
 resource "aws_s3_bucket_policy" "frontend" {
   bucket = aws_s3_bucket.frontend.id
   policy = jsonencode({
@@ -30,7 +30,7 @@ resource "aws_s3_bucket_policy" "frontend" {
         Resource  = "${aws_s3_bucket.frontend.arn}/*"
         Condition = {
           StringEquals = {
-            "AWS:SourceArn" = aws_cloudfront_distribution.frontend.arn
+            "AWS:SourceArn" = "arn:aws:cloudfront::602555456359:distribution/EICA0QNOZNY1F"
           }
         }
       }
