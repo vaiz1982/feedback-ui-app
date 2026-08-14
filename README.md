@@ -1,4 +1,36 @@
 
+feedback-ui-app/
+├── frontend/
+│   └── index.html
+├── terraform/              ← unzip the contents here
+│   ├── versions.tf
+│   ├── variables.tf
+│   ├── s3.tf
+│   ├── cloudfront.tf
+│   ├── dynamodb.tf
+│   ├── iam.tf
+│   ├── lambda.tf
+│   ├── lambda/
+│   │   └── lambda_function.py
+│   ├── api_gateway.tf
+│   ├── ses.tf
+│   ├── outputs.tf
+│   ├── terraform.tfvars.example
+│   ├── .gitignore
+│   └── README.md
+├── .github/
+│   └── workflows/
+│       └── deploy.yaml
+└── README.md
+
+
+
+
+
+
+
+
+
 feetback submitted correctly!!!!1
 <img width="1829" height="535" alt="Screenshot 2026-08-14 at 02 43 40" src="https://github.com/user-attachments/assets/cef2ac6a-4fdd-4041-901a-4a93123df070" />
 
