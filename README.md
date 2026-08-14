@@ -1,3 +1,52 @@
+
+feetback submitted correctly!!!!1
+<img width="1833" height="603" alt="Screenshot 2026-08-14 at 02 38 12" src="https://github.com/user-attachments/assets/f7b72ecd-96e1-45f7-92d6-9b2155f9a02b" />
+
+
+
+
+
+timeStampUpdated!
+<img width="1777" height="457" alt="Screenshot 2026-08-14 at 02 39 18" src="https://github.com/user-attachments/assets/27cf769f-13c4-48f7-a4ff-784783764dfd" />
+
+
+
+
+
+
+
+LambdaMonitoringWorks
+<img width="1145" height="920" alt="Screenshot 2026-08-14 at 02 40 19" src="https://github.com/user-attachments/assets/3a8ae19a-85df-490d-acd2-34f75b4dc2f4" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # feedback-ui-app
 feedback-ui-app
 # trigger
