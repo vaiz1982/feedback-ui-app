@@ -1,0 +1,15 @@
+# Copy this file to terraform.tfvars and fill in your own values.
+# terraform.tfvars is gitignored — never commit real bucket names/emails
+# if they need to stay private, though bucket names must be globally
+# unique regardless.
+
+aws_region            = "us-east-1"
+project_name          = "feedback-app"
+
+# Must be globally unique across ALL AWS accounts
+frontend_bucket_name  = "feedback-ui-app-yourname-12345"
+pdf_bucket_name        = "feedback-pdf-yourname-12345"
+
+dynamodb_table_name    = "FeedbackDBTable"
+
+admin_email            = "your-email@example.com"
