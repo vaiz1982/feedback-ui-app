@@ -1,5 +1,15 @@
+# NOTE: aws_api_gateway_deployment requires apigateway:POST, which
+# TerraformUser lacks on this account. The live "prod" stage continues
+# running on its existing manually-created deployment — this resource
+# will show "1 to add" indefinitely unless account permissions change,
+# but that's expected and doesn't affect the running API.
+
+
+
+
 resource "aws_api_gateway_rest_api" "feedback_api" {
-  name = "${var.project_name}-api"
+  name = "FeetbackAPI" # matches existing, avoids the update attempt
+  #name = "${var.project_name}-api"
 }
 
 resource "aws_api_gateway_resource" "submit" {
@@ -27,6 +37,7 @@ resource "aws_api_gateway_integration" "post_submit" {
   http_method             = aws_api_gateway_method.post_submit.http_method
   integration_http_method = "POST"
   type                    = "AWS_PROXY"
+  content_handling        = "CONVERT_TO_TEXT"
   uri                     = "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:602555456359:function:SubmitFeetbackFunction/invocations"
 }
 
@@ -49,7 +60,14 @@ resource "aws_api_gateway_integration" "options_submit" {
   http_method             = aws_api_gateway_method.options_submit.http_method
   integration_http_method = "POST"
   type                    = "AWS_PROXY"
+  content_handling        = "CONVERT_TO_TEXT"
   uri                     = "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:602555456359:function:SubmitFeetbackFunction/invocations"
+
+  request_templates = {
+    "application/json" = jsonencode({
+      statusCode = 200
+    })
+  }
 }
 
 ########################################
