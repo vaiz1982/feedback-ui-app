@@ -10,6 +10,21 @@
 
 
 
+
+
+<img width="529" height="475" alt="Screenshot 2026-08-14 at 22 34 44" src="https://github.com/user-attachments/assets/3a3fc686-17d6-4a19-9fd4-3ec26888e6f3" />
+
+
+
+
+
+
+
+
+
+
+
+
 email coming up !!!!!!!!!!!// 
 
 <img width="793" height="1200" alt="IMG_2611" src="https://github.com/user-attachments/assets/5c5e246b-5d1f-410f-8e17-651deee0c050" />
