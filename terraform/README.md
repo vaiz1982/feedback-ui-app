@@ -1,3 +1,50 @@
+Good question to ask before you publish this publicly. Let's go through what's actually exposed and what's genuinely safe.
+
+## What's safe to have public in your GitHub repo
+
+- ✅ **Your Terraform `.tf` files** — resource definitions, variable names, structure. This is just *code describing infrastructure*, not credentials.
+- ✅ **`terraform.tfvars.example`** — placeholder values only (`your-email@example.com`, etc.)
+- ✅ **`lambda_function.py`** — the Python logic itself has no secrets in it (it reads everything from environment variables)
+- ✅ **Your CloudFront URL** (`dvudwljz7c6un.cloudfront.net`) — this is a *public-facing* URL by design, meant to be visited by users filling out the form
+
+## What must NOT be public — verify these are actually excluded
+
+1. **`terraform.tfvars`** (the real one, not `.example`) — contains your **real bucket names and real email address**. Your `.gitignore` already excludes this — but **double-check it was never accidentally committed before you added `.gitignore`**:
+```bash
+git log --all --full-history -- terraform/terraform.tfvars
+```
+If this returns any commits, that file made it into your Git history at some point and needs to be scrubbed (even if later deleted, it's still recoverable from history).
+
+2. **`terraform.tfstate`** — **this is the big one.** Your Terraform state file can contain sensitive data depending on what's in it (potentially resource ARNs, and in some cases even sensitive attribute values). Check:
+```bash
+git log --all --full-history -- terraform/terraform.tfstate
+```
+Your `.gitignore` excludes this going forward, but same concern — verify it was never committed.
+
+3. **AWS credentials** — you're already handling this correctly via **GitHub encrypted secrets** for the CI/CD pipeline (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`), never hardcoded in files. Good.
+
+4. **Your `TerraformUser` CLI credentials** — these live in your local `~/.aws/credentials` file on your Mac, never in the repo. Just confirm you never pasted them into any `.tf` file or committed a `.env` file by accident.
+
+## The genuinely important operational risk: your CloudFront URL is public and functional
+
+Since the form works and is publicly reachable:
+- **Anyone can submit the form** — meaning anyone can trigger your Lambda, write to your DynamoDB, upload to your S3 bucket, and cause SES to send you an email. This is expected behavior for a feedback form, but be aware it's not authenticated — there's no login/API key requirement.
+- **No rate limiting** — someone could spam your form repeatedly. At your current traffic and AWS's pay-per-use pricing, a *reasonable* amount of spam costs you fractions of a cent, but a **deliberate abuse attack** (someone scripting thousands of submissions) could rack up real costs on Lambda invocations, DynamoDB writes, and S3 storage.
+
+**This is worth being aware of, not necessarily fixing right now** for a portfolio/lab project — but if you wanted to harden it:
+- Add **AWS WAF** in front of API Gateway with rate limiting
+- Add **API Gateway usage plans/throttling**
+- Add basic **honeypot or CAPTCHA** validation in the Lambda code
+
+## Practical next step
+
+Run those two `git log` commands above right now — that's the one thing that actually matters before you consider this "safe to keep public." If either file was ever committed, tell me and I'll walk you through purging it from history (not just deleting it going forward, since Git remembers everything unless explicitly rewritten).
+
+
+
+
+
+
 <img width="1200" height="439" alt="IMG_2612" src="https://github.com/user-attachments/assets/e9afd4c2-2665-448f-a3de-c551a1c9a4ee" />
 
 
