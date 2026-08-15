@@ -1,3 +1,22 @@
+<img width="1840" height="533" alt="Screenshot 2026-08-14 at 22 22 41" src="https://github.com/user-attachments/assets/bbdf5f7d-b459-4beb-9ab9-20fbfd5b96fe" />
+
+
+
+
+
+
+
+proof last update // test12!!!!!!!
+
+<img width="553" height="450" alt="Screenshot 2026-08-14 at 22 23 03" src="https://github.com/user-attachments/assets/754f5e33-cf49-4d33-9be6-28c2ca7df4f7" />
+
+
+
+
+
+
+
+
 <img width="679" height="842" alt="Screenshot 2026-08-14 at 22 02 12" src="https://github.com/user-attachments/assets/b8358fbb-f952-4df9-8c98-367a3280d6c3" />
 
 
