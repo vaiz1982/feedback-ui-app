@@ -1,3 +1,28 @@
+<img width="1200" height="439" alt="IMG_2612" src="https://github.com/user-attachments/assets/e9afd4c2-2665-448f-a3de-c551a1c9a4ee" />
+
+
+
+
+
+
+
+
+
+
+email coming in!!!!!!1
+<img width="793" height="1200" alt="IMG_2611" src="https://github.com/user-attachments/assets/5326146c-7c81-47e4-babf-a4617288e6a1" />
+
+
+
+
+
+
+
+
+
+
+
+
 <img width="1840" height="533" alt="Screenshot 2026-08-14 at 22 22 41" src="https://github.com/user-attachments/assets/bbdf5f7d-b459-4beb-9ab9-20fbfd5b96fe" />
 
 
